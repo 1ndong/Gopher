@@ -1,6 +1,6 @@
 # Gopher
 
 run via module  
-go mod init [module name]  
-go build  
-./[module name].exe  
+&nbsp;&nbsp;&nbsp;&nbsp;go mod init [module name]  
+&nbsp;&nbsp;&nbsp;&nbsp;go build  
+&nbsp;&nbsp;&nbsp;&nbsp;./[module name].exe  
