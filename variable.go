@@ -33,7 +33,7 @@ func main() {
 		fmt.Println(a, b, c, d, e, f)
 	}
 
-	fmt.Printf("%d", 1)
+	fmt.Printf("%d\n", 1)
 	/*
 		%T -> print data type
 		%t -> bool
@@ -46,6 +46,15 @@ func main() {
 		%X -> hex over 10 -> 'A-F'
 		%q -> print string ignore special character
 	*/
+	{
+		var a string
+		n, err := fmt.Scanln(&a)
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println(n, a)
+		}
+	}
 }
 
 /*
