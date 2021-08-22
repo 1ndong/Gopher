@@ -32,6 +32,20 @@ func main() {
 
 		fmt.Println(a, b, c, d, e, f)
 	}
+
+	fmt.Printf("%d", 1)
+	/*
+		%T -> print data type
+		%t -> bool
+		%v -> adjust data type
+		%b -> binary
+		%c -> unicode character
+		%o -> octa
+		%O -> octa add 'Oo' which means octa value
+		%x -> hex over 10 -> 'a-f'
+		%X -> hex over 10 -> 'A-F'
+		%q -> print string ignore special character
+	*/
 }
 
 /*
