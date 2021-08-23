@@ -53,4 +53,11 @@ func main() {
 	rooms = ResetLight(rooms, SmallRoom)
 
 	TurnLights(rooms)
+
+	const PI = 3.14              //no type const
+	const FloatPI float64 = 3.14 //float64 type const
+
+	var a int = PI * 100
+
+	fmt.Println(a)
 }
