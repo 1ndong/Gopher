@@ -22,16 +22,15 @@ https://vallista.kr/2019/12/28/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB
 8.map[key]에 key를 발견하지 못하면 nil 혹은 zero value를 리턴한다  
 9.interface{}는 empty interface로 모든 데이타 타입을 가질 수 있다  
 {  
-    var x interface{}  
-    x = 1  
-    x = "tom"  
-    하면 x=1에서 x의 타입이 1로 결정될줄알앗는데  
-    "tom" 할당하면 string으로 다시 값이 들어간다  
-    void*같은 개념이므로 다시 값이 들어가는게 맞긴함  
-    타입이 결정되는건 ts에서 let같은거였으면 말이 됨  
-    
+&nbsp;&nbsp;&nbsp;&nbsp;var x interface{}  
+&nbsp;&nbsp;&nbsp;&nbsp;x = 1  
+&nbsp;&nbsp;&nbsp;&nbsp;x = "tom"  
+&nbsp;&nbsp;&nbsp;&nbsp;하면 x=1에서 x의 타입이 1로 결정될줄알앗는데  
+&nbsp;&nbsp;&nbsp;&nbsp;"tom" 할당하면 string으로 다시 값이 들어간다  
+&nbsp;&nbsp;&nbsp;&nbsp;void*같은 개념이므로 다시 값이 들어가는게 맞긴함  
+&nbsp;&nbsp;&nbsp;&nbsp;타입이 결정되는건 ts에서 let같은거였으면 말이 됨  
 }  
-10.
+10.  
 {
     package main
   
@@ -47,11 +46,11 @@ https://vallista.kr/2019/12/28/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB
 
 11. 복수 채널을 기다리며 먼저 도착한 채널로 분기하기 위해 select문을 사용함
 12. -> 좀더 봐야됨  
-{
-   func main() {
-    ch := make(chan string, 1)
-    f(ch)
-    } 
+{  
+   func main() {  
+    ch := make(chan string, 1)  
+    f(ch)  
+    }  
     
     func f(ch chan<- string) {
         ch <- "OK"
@@ -62,27 +61,27 @@ https://vallista.kr/2019/12/28/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB
 }
 
 13.  
-{
-    func main() {
-        var a interface{} = 1.0// -> 여기서 type이 float32로 지정됨
+{  
+    func main() {  
+        var a interface{} = 1.0// -> 여기서 type이 float32로 지정됨  
         i := a.(int)//type assertion이 발생함  
-        fmt.Println(i)
-    }
-}
+        fmt.Println(i)  
+    }  
+}  
 
 14.복수 라이브러리를 한 줄로 import하기 위해서는 import("fmt";"os")와 같이 표현할 수 있다  
 15.go에서 concurrent 컴포넌트인 goroutine들은 채널으 ㄹ통해 메세지를 교환하면서 통신한다  
 16.  
-{
-    func main() {
-        for i := 0; i < 5; i++ {
-            go func() {
-                fmt.Println(i)
-            }()
-        }
+{  
+    func main() {  
+        for i := 0; i < 5; i++ {  
+            go func() {  
+                fmt.Println(i)  
+            }()  
+        }  
     
-        time.Sleep(1 * time.Second)
-    }
+        time.Sleep(1 * time.Second)  
+    }  
     메인루틴이 실행이 다 되어서 i가 5가 되고 goroutine이 5번 실행되면서 i는 이미 5가 되었음 그래서 5가 5번 출력됨  
 }  
 17.go는inheritance대신 composition을 사용한다  
@@ -101,17 +100,17 @@ https://vallista.kr/2019/12/28/%EB%8F%99%EC%8B%9C%EC%84%B1%EA%B3%BC-%EB%B3%91%EB
         println(<-ch)  
         println(<-ch)  
     }  
-    close함수는 송신에 대해 채널을 닫지만, 수신은 허용한다 
+    close함수는 송신에 대해 채널을 닫지만, 수신은 허용한다  
     답은 1,2 가 차례로 출력된다   
 }  
 20.  
-{
-    func check(level int) string {
-        if tag := "*"; level > 1000 {
-            return string(level) + tag + tag + tag
-        }
+{  
+    func check(level int) string {  
+        if tag := "*"; level > 1000 {  
+            return string(level) + tag + tag + tag  
+        }  
     
-        return string(level) + tag
-    }
+        return string(level) + tag  
+    }  
     컴파일 에러가 발생한다 if문의 조건문 직전에 사용되는 optional statement는 if문 블럭 내에서만 사용된다  
-}
+}  
