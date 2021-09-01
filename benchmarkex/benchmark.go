@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+var m map[int]int // dynamic programming memoization improve recursive func performance
+
 func fibonacci1(n int) int{
 	if n < 0{
 		return 0
@@ -9,7 +11,15 @@ func fibonacci1(n int) int{
 	if n<2{
 		return n
 	}
-	return fibonacci1(n-1) + fibonacci1(n-2)
+	if m== nil{
+		m = make(map[int]int)
+	}
+	if v,ok:= m[n];ok{
+		return v
+	}
+	v:= fibonacci1(n-1) + fibonacci1(n-2)
+	m[n] = v
+	return v
 }
 
 func fibonacci2(n int)int{
